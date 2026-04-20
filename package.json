@@ -10,6 +10,7 @@
     "web": "expo start --web",
     "lint": "expo lint",
     "lint:fix": "eslint . --fix",
+    "typecheck": "tsc --noEmit",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json}\"",
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json}\"",
     "prepare": "husky"
@@ -52,11 +53,15 @@
   },
   "private": true,
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
+    "app/**/*.{ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
     ],
-    "*.{json,md}": [
+    "**/*.{ts,tsx}": [
+      "prettier --write",
+      "bash -c \"npm run typecheck\""
+    ],
+    "**/*.{json,md,css,scss}": [
       "prettier --write"
     ]
   }
