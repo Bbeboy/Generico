@@ -48,7 +48,7 @@ EXPO_PUBLIC_SHOPIFY_API_VERSION=2025-10
 EXPO_PUBLIC_SHOPIFY_ACCOUNT_URL=https://your-store.myshopify.com/account
 ```
 
-> En producción usa **EAS Secrets** en vez de `.env` plano. El prefijo `EXPO_PUBLIC_` hace que las vars sean accesibles en el cliente; el token de Storefront es de bajo privilegio por diseño.
+> En producción usa el gestor de secretos del proveedor de build/deploy en vez de `.env` plano. El prefijo `EXPO_PUBLIC_` hace que las vars sean accesibles en el cliente; el token de Storefront es de bajo privilegio por diseño.
 
 ### Path alias `@/`
 

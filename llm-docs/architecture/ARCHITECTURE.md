@@ -227,7 +227,7 @@ Igual que query, pero en `services/shopify/mutations/`. Además:
 1. Añade la var a `.env` y a `.env.example` si existe.
 2. Añade su lectura tipada en `lib/env.ts` usando `required()`.
 3. Consúmela **solo** vía `ENV.X`. Prohibido `process.env.X` directamente en el resto del código.
-4. Si es sensible, añádela también a EAS Secrets.
+4. Si es sensible, añádela también al gestor de secretos del proveedor de build/deploy.
 
 ### 4.7. Agregar una acción hacia una página hospedada de Shopify
 
@@ -311,7 +311,7 @@ Lista negra de cosas que **NUNCA** deben aparecer en un PR:
 - **MUST NOT:** nunca loguear tokens ni IDs sensibles. Ni en `console.log`, ni en reportes de error, ni en analytics.
 - **MUST:** `cartId` va en `expo-secure-store` vía `SecureStorage`.
 - **MUST NOT:** nunca guardar tokens o `cartId` en AsyncStorage, memoria global, ni archivos.
-- **MUST:** el token de Storefront va en `.env` + EAS Secrets. Aunque es "público" por diseño, no hardcodearlo permite rotarlo sin tocar código.
+- **MUST:** el token de Storefront va en `.env` + gestor de secretos del proveedor de build/deploy. Aunque es "público" por diseño, no hardcodearlo permite rotarlo sin tocar código.
 - **MUST NOT:** instalar librerías de analytics o tracking sin discusión explícita con el equipo humano.
 
 **Lo que delibradamente NO manejamos** (y está bien):
