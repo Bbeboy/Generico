@@ -1,11 +1,18 @@
 import { ShopifyCheckoutSheetProvider, useShopifyCheckoutSheet } from '@shopify/checkout-sheet-kit';
 import { useQueryClient } from '@tanstack/react-query';
 import { type PropsWithChildren, useEffect } from 'react';
+import { NativeModules } from 'react-native';
 
 import { cartKeys } from '@/features/cart/query-keys';
 import { SecureStorage, StorageKeys } from '@/lib/secure-storage';
 
+const isCheckoutSheetAvailable = Boolean(NativeModules.ShopifyCheckoutSheetKit);
+
 export function CheckoutProvider({ children }: PropsWithChildren) {
+  if (!isCheckoutSheetAvailable) {
+    return children;
+  }
+
   return (
     <ShopifyCheckoutSheetProvider>
       <CheckoutEvents />
