@@ -21,11 +21,11 @@ export function HomeHeroBanner({ banner }: HomeHeroBannerProps) {
 
   const accessibilityLabel =
     banner.cta.kind === 'collection'
-      ? `Ver colección ${banner.cta.collectionTitle ?? banner.cta.collectionHandle}`
+      ? `Ver colección ${banner.cta.collectionHandle ?? ''}`.trim()
       : `Abrir enlace ${banner.cta.label}`;
 
   return (
-    <View className="relative h-[520px] w-full overflow-hidden">
+    <View className="relative h-[520px] overflow-hidden rounded-card">
       {/* Background Image */}
       <Image
         source={{ uri: banner.image.url }}

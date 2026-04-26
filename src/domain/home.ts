@@ -1,11 +1,10 @@
 import type { Image } from './product';
 
-export type HomeHeroBannerLink = {
+export type HomeHeroBannerCTA = {
   kind: 'collection' | 'external';
   label: string;
   href: string;
   collectionHandle: string | null;
-  collectionTitle: string | null;
 };
 
 export type HomeHeroBanner = {
@@ -14,13 +13,18 @@ export type HomeHeroBanner = {
   title: string;
   description: string;
   image: Image;
-  cta: HomeHeroBannerLink;
+  cta: HomeHeroBannerCTA;
+};
+
+export type HomeHeroCarousel = {
+  id: string;
+  banners: HomeHeroBanner[];
 };
 
 export type HomeSection = {
-  type: 'hero-banner';
+  type: 'hero-carousel';
   id: string;
-  data: HomeHeroBanner;
+  data: HomeHeroCarousel;
 };
 
 export type HomeCanvas = {

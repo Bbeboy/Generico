@@ -1,7 +1,7 @@
 import { View } from 'react-native';
 
 import type { HomeCanvas as HomeCanvasType } from '@/domain/home';
-import { HomeHeroBanner } from './home-hero-banner';
+import { HomeHeroCarousel } from './home-hero-carousel';
 
 type HomeCanvasProps = {
   canvas: HomeCanvasType;
@@ -9,11 +9,11 @@ type HomeCanvasProps = {
 
 export function HomeCanvas({ canvas }: HomeCanvasProps) {
   return (
-    <View className="py-6">
+    <View className="px-5 py-6">
       {canvas.sections.map((section) => {
         switch (section.type) {
-          case 'hero-banner':
-            return <HomeHeroBanner key={section.id} banner={section.data} />;
+          case 'hero-carousel':
+            return <HomeHeroCarousel key={section.id} carousel={section.data} />;
           default:
             return null;
         }
