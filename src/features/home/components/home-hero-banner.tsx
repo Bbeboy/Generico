@@ -25,7 +25,7 @@ export function HomeHeroBanner({ banner }: HomeHeroBannerProps) {
       : `Abrir enlace ${banner.cta.label}`;
 
   return (
-    <View className="relative h-[520px] overflow-hidden rounded-card">
+    <View className="relative h-[520px] w-full overflow-hidden">
       {/* Background Image */}
       <Image
         source={{ uri: banner.image.url }}

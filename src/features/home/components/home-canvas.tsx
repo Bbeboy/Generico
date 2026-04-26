@@ -9,7 +9,7 @@ type HomeCanvasProps = {
 
 export function HomeCanvas({ canvas }: HomeCanvasProps) {
   return (
-    <View className="px-5 py-6">
+    <View className="py-6">
       {canvas.sections.map((section) => {
         switch (section.type) {
           case 'hero-banner':
